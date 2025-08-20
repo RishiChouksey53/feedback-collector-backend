@@ -1,0 +1,20 @@
+### Get all feedback
+
+GET http://localhost:8080/feedback
+Content-Type: application/json
+
+### Add new feedback
+
+POST http://localhost:8080/feedback
+Content-Type: application/json
+
+{
+    "name":"ironMan",
+    "email":"ironman@gmail.com",
+    "message":"good work"
+}
+
+### Delete feedback
+
+Delete http://localhost:8080/feedback/68a3df27148698309905bd98
+Content-Type: application/json
