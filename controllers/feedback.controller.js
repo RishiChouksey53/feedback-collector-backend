@@ -21,9 +21,13 @@ export const addNewFeedback = async (req, res) => {
 };
 
 export const getAllFeedback = async (req, res) => {
+  if (req.user.role !== "admin") {
+    return res
+      .status(403)
+      .json({ message: "Access denied. Only admin can access this." });
+  }
   try {
     const feedback = await Feedback.find();
-    console.log(feedback);
     return res
       .status(200)
       .json({ message: "feedback fetched successfully", feedback });
@@ -36,6 +40,11 @@ export const getAllFeedback = async (req, res) => {
 };
 
 export const deleteFeedback = async (req, res) => {
+  if (req.user.role !== "admin") {
+    return res
+      .status(403)
+      .json({ message: "Access denied. Only admin can access this." });
+  }
   const { id } = req.params;
   try {
     const feedback = await Feedback.findByIdAndDelete({ _id: id });

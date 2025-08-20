@@ -4,11 +4,12 @@ import {
   deleteFeedback,
   getAllFeedback,
 } from "../controllers/feedback.controller.js";
+import { authenticateUser } from "../middlewares/authenticateUser.middleware.js";
 
 const feedbackRouter = Router();
 
-feedbackRouter.get("/", getAllFeedback);
+feedbackRouter.get("/", authenticateUser, getAllFeedback);
 feedbackRouter.post("/", addNewFeedback);
-feedbackRouter.delete("/:id", deleteFeedback);
+feedbackRouter.delete("/:id", authenticateUser, deleteFeedback);
 
 export default feedbackRouter;
