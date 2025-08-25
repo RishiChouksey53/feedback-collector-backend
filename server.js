@@ -7,7 +7,7 @@ import mainRouter from "./routes/main.router.js";
 const app = express();
 
 app.use(express.json());
-app.use(cors({ origin: "https://feedback-collector-frontend-swart.vercel.app" }));
+app.use(cors({ origin: ["https://feedback-collector-frontend-swart.vercel.app","http://localhost:5173"]}));
 app.use("/", mainRouter);
 
 app.set("port", process.env.PORT || 8080);
