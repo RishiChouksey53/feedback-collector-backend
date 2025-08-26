@@ -15,7 +15,6 @@ const FeedbackSchema = new Schema({
   },
   rating: {
     type: Number,
-    default: 1,
     required: true,
   },
   createdAt: {
